@@ -250,4 +250,22 @@
      show];
 }
 
+// Get link which can be shared to others
+- (IBAction)getSharableLink:(id)sender {
+    NSString *path = @"/Suraj.jpg";
+    [[self restClient] loadSharableLinkForFile:path];
+}
+
+- (void)restClient:(DBRestClient*)restClient loadedSharableLink:(NSString*)link forFile:(NSString*)path
+{
+    [[[[UIAlertView alloc] initWithTitle:@"Link" message:link delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease]
+     show];
+    NSLog(@"Link to Share is %@", link);
+}
+- (void)restClient:(DBRestClient*)restClient loadSharableLinkFailedWithError:(NSError*)error
+{
+    [[[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease]
+     show];
+}
+
 @end

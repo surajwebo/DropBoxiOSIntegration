@@ -24,5 +24,6 @@
 
 - (IBAction)uploadToDropBox:(id)sender;
 - (IBAction)deleteFromDropBox:(id)sender;
+- (IBAction)getSharableLink:(id)sender;
 
 @end
